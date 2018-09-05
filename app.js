@@ -41,7 +41,7 @@ app.get('/', function(req,res){
     res.json(ipData);
 });
 
-app.listen(443, function () {
-	console.log('Listening on port 443');
+app.listen(9556, function () {
+	console.log('Listening on port 9556');
 });
 
