@@ -41,7 +41,8 @@ app.get('/', function(req,res){
     res.json(ipData);
 });
 
-app.listen(9556, function () {
-	console.log('Listening on port 9556');
+var port = process.env.PORT || 1337;
+app.listen(port, function () {
+	console.log('Listening on port ' + port);
 });
 
