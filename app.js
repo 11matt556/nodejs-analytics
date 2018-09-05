@@ -41,7 +41,7 @@ app.get('/', function(req,res){
     res.json(ipData);
 });
 
-app.listen(3000, function () {
-	console.log('Listening on port 3000');
+app.listen(443, function () {
+	console.log('Listening on port 443');
 });
 
