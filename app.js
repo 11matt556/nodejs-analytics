@@ -7,7 +7,7 @@ var cors = require('cors');
 var app = express();
 
 // use it before all route definitions
-app.use(cors({origin: 'https://howell-info.azurewebsites.net/'}));
+app.use(cors({origin: 'https://howell-info.azurewebsites.net'}));
 app.use(requestIp.mw())
 app.use(bodyParser.json());
 
