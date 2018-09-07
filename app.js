@@ -24,25 +24,32 @@ try {
     })
 }
 
+app.get('/record', function(req,res){
+    //console.log("ipData before",ipData);
 
-app.get('/', function(req,res){
-    console.log("ipData before",ipData);
-
-    var ip = req.clientIp;
-    var jsonDate = new Date().toJSON();
+    var ip = req.clientIp;  //Get the client ip
+    var jsonDate = new Date().toJSON(); //Get the date and convert to json
     ipData[ip] = jsonDate;
 
-    console.log("ipData after",ipData);
-
-    var uniqueVisitors =  Object.keys(ipData).length;
+    //console.log("ipData after",ipData);
 
     jsonfile.writeFile(file, ipData, function (err) {
         console.log("writing file", ipData)
         console.error(err)
     })
 
-    res.json(ipData);
+    res.end();
 });
+
+app.get('/unique',function(req,res){
+    var uniqueVisitors =  Object.keys(ipData).length;
+    
+    res.send(uniqueVisitors.toString());
+})
+
+app.get('/data',function(req,res){
+    res.json(ipData);
+})
 
 var port = process.env.PORT || 1337;
 app.listen(port, function () {
